@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: paylab
+  datasource:
+    url: ${PAYLAB_DB_URL:jdbc:postgresql://localhost:5432/paylab}
+    username: ${POSTGRES_USER:paylab}
+    password: ${POSTGRES_PASSWORD}
+logging:
+  structured:
+    format:
+      console: logstash
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+springdoc:
+  paths-to-match: /api/v1/**
+paylab:
+  jwt-secret: ${PAYLAB_JWT_SECRET}
